@@ -27,8 +27,66 @@
     <!-- estilos y scripts en linea tmb -->
     <style>
         body{
-            background: #d2f3d2;
+            /* background: #d2f3d2; */
+            /* background: rgba(210, 243, 210, 90%); X RGBA ESTA LEGACY */
+            background: rgb(210 243 210 / 90%); /* MODERNO */
+            
         }
+
+        h1{
+            color: #ff69b4;
+            /*https://miro.medium.com/v2/resize:fit:4800/format:webp/1*-EvxGXO7I3ZwAMIfrFRjtQ.jpeg*/
+            /* color: hsl(280, 50, 50);  */
+        }
+
+        /* el punto indica clases */
+        .link{
+            color:rgb(80 147 255);
+        }
+
+        /* el hash indica id */
+        #show{
+            background-color: rgb(111 160 92 / 70%);
+            color: aliceblue;
+            /*border: none; border no se hereda, valor initial no inheret */
+            border: 3px solid #09f; /*border en una sola linea*/
+        }
+
+        /* estados especiales del elemento, acciones o pseudoclases */
+        .link:hover{
+            color: blue;
+            /*border: 3px solid red; borde*/
+            outline: 3px solid red;/*contorno, no ocupa espacio se dibuja arriba del elemento*/
+        }
+
+        .link:active{
+            outline: 3px solid rgb(77, 155, 81);
+        }
+
+        li:first-child{
+            color:pink;
+        }
+
+        /* operador > solo afecta a los hijos directos del elemento main, al mismo nivel*/
+        main > p {
+            color:#8a2be2;
+        }
+
+        /* operador ~ (virguilla) solo afecta al elemento despues del indicado */
+        h1 ~ p { /*todos los elemento consecutivo de h1 que sea p es el afectado*/
+            color: red;
+        }
+
+        /* operador + afecta solo al nodo hermano directo*/
+        h2 + ul {
+            border: 1px solid green;
+        }
+        /*si tienes dos botones muy cera, sin afectar al primero puedes mover el segundo*/
+        button + button {
+            margin-left: 20px;
+        }
+
+
     </style>
 
 </head>
@@ -38,9 +96,9 @@
         <h1>Portfolio de Andrea</h1>
 
         <nav>
-            <a href="#experiencia">Experiencia</a>
-            <a href="#proyectos">Enlace Interno</a>
-            <a href="https://google.com" target="_blank" rel="noreferrer">Enlace externo</a>
+            <a class="link" href="#experiencia">Experiencia</a>
+            <a class="link" href="#proyectos">Enlace Interno</a>
+            <a class="link" href="https://google.com" target="_blank" rel="noreferrer">Enlace externo</a>
         </nav>
     </header>
 
@@ -71,6 +129,9 @@
         })
     </script>
     <main>
+
+        <h1>esto no es color rojo</h1>
+        <p>esto si</p>
 
         <p><strong>Estudiante de Ingenieria de Software</strong></p>
 
@@ -207,6 +268,7 @@
                 </fieldset>
 
                 <input type="submit" value="Enviar Contacto">
+                <button>Enviar Contacto</button>
                 <button>Enviar Contacto</button>
             </form>
             
