@@ -2,6 +2,10 @@
     se sobre escribe segun su nivel de specificity
 */
 
+body{
+    background-color: aliceblue;
+}
+
 /* (0, 1, 0) */
 .text {
     font-size: 20px;
@@ -25,3 +29,20 @@ p {
 p {
     color: blueviolet !important;
 }
+
+
+/* UNIDADES RELATIVAS Y ABSOLUTAS */
+/* PX --> UNIDAD RELATIVA */
+/* % --> UNIDAD RELATIVA DEL CONTENEDOR PADRE */
+/* vh y vw --> UNIDAD RELATIVA AL VIEWPORT W Y H */
+
+body{
+    margin: 0;
+}
+
+.container {
+    width: 50vw;
+    height: 100vh;
+    background: green;
+}
+
