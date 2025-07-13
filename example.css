@@ -41,8 +41,42 @@ body{
 }
 
 .container {
-    width: 50vw;
-    height: 100vh;
-    background: green;
+    /* contenido: el contenido real del elemento */
+    width: 150px;
+    height: 150px;
+    background: blanchedalmond;
+    /* padding es el contorno del contenido: cambia el tamaño del contenido */
+    padding: 10px;
+    /* border es el borde visible que rodea al padding y al contenido: cambia el tamaño del contenido */
+    border: 10px solid; 
+    /* margin es el espacio externo que separa el elemento de otros elementos, NO AFECTA EL TAMAÑO DEL BLOQUE */
+    margin: 20px;
+    
+    /* aqui el tamaño final del contenido no es l mismo que el del inicio, 
+    porque hemos sumado los px del padding y los px del border.
+    si necesitamos un tamaño especifico del contenido podemos usar border-box:
+    hace que se el contenido total considere desde el border hacia dentro*/
+    box-sizing: border-box;
+    
 }
+
+/* MODELO DE LA CAJA
++-----------------------------+
+|        margin              |
+|  +---------------------+   |
+|  |      border         |   |
+|  |  +-------------+    |   |
+|  |  |  padding    |    |   |
+|  |  | +--------+  |    |   |
+|  |  | | content | |    |   |
+|  |  | +--------+  |    |   |
+|  |  +-------------+    |   |
+|  +---------------------+   |
++-----------------------------+ */
+
+
+/* ETIQUETAS BLOQUE Y ETIQUETAS EN LINEA */
+/* span, p, a, strong, em --> display en linea: por lo tanto no es posible modificar por defecto su height ni width, se apilan en la misma linea */
+/* div, section, h1 --> display en bloque: por lo tanto si puedes modificar su w y h, no se apilan hay salto de linea entre ellos*/
+
 
