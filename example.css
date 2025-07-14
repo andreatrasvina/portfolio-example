@@ -3,7 +3,7 @@
 */
 
 body{
-    background-color: aliceblue;
+    background-color: #c4e4ff;
 }
 
 /* (0, 1, 0) */
@@ -88,3 +88,27 @@ body{
 /* div, section, h1 --> display en bloque: por lo tanto si puedes modificar su w y h, no se apilan hay salto de linea entre ellos*/
 
 
+/* POSICIONES:
+position absolute: de manera absoluta en todo el documento mueve por coordenadas el elemento
+position relative: el elemento padre es la referencia absoluta del elemento que queremos mover por coordenadas
+  */
+section{
+    border: 5px solid;
+    width: 400px;
+    height: 400px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.contenedor{
+    background: #09f;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    /* right: 0px;
+    top: 0px;
+    bottom: 0px;
+    left: 0px; todo esto es equivalente al inset: 0*/
+    inset: 0;
+    margin: auto;
+}
