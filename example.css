@@ -57,6 +57,14 @@ body{
     si necesitamos un tamaño especifico del contenido podemos usar border-box:
     hace que se el contenido total considere desde el border hacia dentro*/
     box-sizing: border-box;
+
+    font-size: 40px;
+    /*el desbordamiento se puede solucionar con overflow
+    auto detecta si necesita el scroll o no y lo esconde, scroll muestra el scroll siempre,
+     hidden no muestra el desbordamiento
+    */
+    overflow: auto; 
+    text-overflow: ellipsis;
     
 }
 
