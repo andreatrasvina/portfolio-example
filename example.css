@@ -141,7 +141,7 @@ IMPORTANTE:
 se debe utilizar el position relative en el elemento que quieres tomar como referencia relativa para saber que nivel de capa aplicar
 el position relative activa el stack de apilamiento o contexto de apilamiento
 */
-
+/* 
 body{
     padding-top: 200px;
 }
@@ -171,4 +171,66 @@ div:nth-child(2){
 div:last-child{
     background: red;
     z-index: 1;
+} */
+
+/*DISPLAY
+display block: se comporta como bloques, salto de linea
+display inline: se comporta como linea de texto, no tiene w ni h
+display flex: se aplica al componente padre, donde los hijos seran los afectados: se comporta como bloque pero permite que se muestren en columna o fila
+flex direction: direccion en la que el display muestra los elementos hijos, ROW ES EL VALOR POR DEFECTO
+flex wrap: cuando hay desbordamiento no wrap ajusta el tamaño de elementos para que se mantengan en la misma linea
+            wrap permite que los elementos se acomoden en diferentes lineas cuando no caben
+            NO WRAP ES EL VALOR POR DEFECTO
+*/
+
+.section{
+    border: 4px solid;
+    box-sizing: border-box;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    /* direction: rtl; rigth to left*/
+    /* writing-mode:vertical-lr; left right */
+    flex-wrap: nowrap;
+
+    /*existe una manera de abreviar direction y wrap en una sola linea*/
+    flex-flow: row wrap;
+}
+
+.item{
+    border: 1px solid;
+    opacity: .9;
+    width: 50px;
+    height: 100px;
+    background: #09f;
+
+    /*valores por defecto*/
+    /*flex-grow: 0; los elementos NO crecen*/
+    /*flex-shrink: 0; los elementos pueden reducir su tamaño a un tamaño mas pequeño que su flex-basis*/
+    /*flex-basis: auto; los elementos tienen un tamaño base en auto*/
+    /*esto es equivalente a flex: auto*/
+
+
+    flex-grow: 1; /*los elementos crecen su tamaño, se adaptan al contenedor padre*/
+    flex-shrink: 1; /*los elementos pueden reducir su tamaño*/
+    flex-basis: 0; /*independientemente del contenido todos los elementos toman el mismo tamaño*/
+    /*esto es equivalente a flex: 1;*/
+    flex: 1;
+}
+
+.item:first-child{
+    background: yellow;
+    flex: 4;/*sirve como medida relativa para asignar el tamaño de los elementos, 4 veces lo que usaria 1 espacio normal*/
+    order: 3; /*orden en el que los hijos se muestran en el contendor flexible, es como el z index*/
+}
+
+.item:nth-child(2){
+    background-color: violet;
+    flex: 2; /*2 veces de lo que usaria un espacio normal(el espacio normal es el elemento que tiene flex:1)*/
+    order: 1;
+}
+.item:last-child{
+    background: red;
+    flex: 1; 
+    order: 2;
 }
