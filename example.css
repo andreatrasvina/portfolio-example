@@ -89,9 +89,12 @@ body{
 
 
 /* POSICIONES:
+position static: por defecto xdxd
 position absolute: de manera absoluta en todo el documento mueve por coordenadas el elemento
 position relative: el elemento padre es la referencia absoluta del elemento que queremos mover por coordenadas
-  */
+position fixed: las coordenadas no se fijan segun el documento, ni el padre. son fijas a la pantalla o viewport
+position sticky: el elemento se queda pegado al contenedor y no sale de ahi, el padre es relative
+*/
 section{
     border: 5px solid;
     width: 400px;
@@ -104,11 +107,21 @@ section{
     background: #09f;
     width: 200px;
     height: 200px;
-    position: absolute;
+
+    position: sticky;
+    right: 0px;
+    top: 0px;
+    margin: auto;
+    
+    /* position: fixed;
+    right: 0px;
+    top: 0px; */
+
+    /* position: absolute; */
     /* right: 0px;
     top: 0px;
     bottom: 0px;
     left: 0px; todo esto es equivalente al inset: 0*/
-    inset: 0;
-    margin: auto;
+    /* inset: 0;
+    margin: auto; */
 }
