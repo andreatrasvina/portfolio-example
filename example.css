@@ -95,23 +95,30 @@ position relative: el elemento padre es la referencia absoluta del elemento que 
 position fixed: las coordenadas no se fijan segun el documento, ni el padre. son fijas a la pantalla o viewport
 position sticky: el elemento se queda pegado al contenedor y no sale de ahi, el padre es relative
 */
-section{
+.parent{
     border: 5px solid;
     width: 400px;
     height: 400px;
     box-sizing: border-box;
     position: relative;
+    background-color: beige;
 }
 
 .contenedor{
     background: #09f;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 
-    position: sticky;
+    position: fixed;
+    right: 0;
+    /*z index para controlar el apilamiento, ir de pocos numeros para saber la capa en la que estamos
+    normalmente se piensa que el viewport es un 2d, pero no es asi, los elementos tienen profundidad por capas*/
+    z-index: 2;
+
+    /* position: sticky;
     right: 0px;
     top: 0px;
-    margin: auto;
+    margin: auto; */
     
     /* position: fixed;
     right: 0px;
@@ -124,4 +131,44 @@ section{
     left: 0px; todo esto es equivalente al inset: 0*/
     /* inset: 0;
     margin: auto; */
+}
+
+/*z index para controlar el apilamiento
+normalmente se piensa que el viewport es un 2d, pero no es asi, los elementos tienen profundidad por capas
+z-index es la cercania de la capa del elemento, menor importancia mas lejania
+
+IMPORTANTE: 
+se debe utilizar el position relative en el elemento que quieres tomar como referencia relativa para saber que nivel de capa aplicar
+el position relative activa el stack de apilamiento o contexto de apilamiento
+*/
+
+body{
+    padding-top: 200px;
+}
+
+div{
+    border: 1px solid;
+    opacity: .9;
+    width: 200px;
+    height: 200px;
+    margin-top: -100px;
+    box-shadow: 0 0 5px;
+
+    position: relative;
+}
+
+div:first-child{
+    background: yellow;
+    z-index: 3;
+}
+
+div:nth-child(2){
+    background: #09f;
+    z-index: 2;
+
+}
+
+div:last-child{
+    background: red;
+    z-index: 1;
 }
