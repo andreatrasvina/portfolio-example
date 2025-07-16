@@ -3,7 +3,7 @@
 */
 
 body{
-    background-color: #c4e4ff;
+    background-color: #ddd;
 }
 
 /* (0, 1, 0) */
@@ -246,4 +246,38 @@ flex wrap: cuando hay desbordamiento no wrap ajusta el tamaño de elementos para
     background: red;
     /* flex: 1; 
     order: 2; */
+}
+
+/*flex: solo un eje principal, row o column
+grid: cuadricula, matriz o rejilla dos dimensiones, row Y column*/
+
+.contenedor-grid{
+    margin: 10px;
+
+    background-color: pink;
+    border: 3px solid;
+    border-radius: 10px;
+
+    /*para convertirlo a cuadricula se usa la propiedad grid*/
+    display: grid;
+    /*grid-template-columns: 1fr 1fr; /*1fr = 100%, la cantidad de fracciones que pongamos sera el total de columnas*/
+    /*existen dos maneras de indicar el alto de la fila*/
+    /*grid-template-rows: 100px 50px 20px 500px; /*tamaño de la altura de las filas especificada*/
+    /*grid-auto-rows: 200px 19px;/*el tamaño de la altura automaticamente de cada fila*/
+
+    grid-auto-flow: row; /*valor por defecto*/
+
+    /*usar REPEAT cuando el mismo valor se repite, se puede combinar con valores fijos*/
+    grid-template-columns: 25px repeat(3, 1fr) minmax(100px, 1fr); /*una columna de 25px, 3 de 1 fr, y la ultima columna tiene un espacio minimo de 100px y maximo se comporta como 1fr*/
+    /*repeat(3, 1fr): repite 3 columnas de 1 fr*/
+    /*repeat(3, 25px 50px): se repite el patron de una columna 25 y otra 50*/
+    /*minmax(100px, 1fr): minimo 100px, maximo 1fr*/
+    grid-template-rows: repeat(2, 100px); 
+
+}
+
+.div-grid{
+    background: hotpink;
+    border: 2px solid plum;
+    border-radius: 6px;
 }
