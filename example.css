@@ -268,11 +268,15 @@ grid: cuadricula, matriz o rejilla dos dimensiones, row Y column*/
     grid-auto-flow: row; /*valor por defecto*/
 
     /*usar REPEAT cuando el mismo valor se repite, se puede combinar con valores fijos*/
-    grid-template-columns: 25px repeat(3, 1fr) minmax(100px, 1fr); /*una columna de 25px, 3 de 1 fr, y la ultima columna tiene un espacio minimo de 100px y maximo se comporta como 1fr*/
+    /*grid-template-columns: 25px repeat(3, 1fr) minmax(100px, 1fr); /*una columna de 25px, 3 de 1 fr, y la ultima columna tiene un espacio minimo de 100px y maximo se comporta como 1fr*/
     /*repeat(3, 1fr): repite 3 columnas de 1 fr*/
     /*repeat(3, 25px 50px): se repite el patron de una columna 25 y otra 50*/
     /*minmax(100px, 1fr): minimo 100px, maximo 1fr*/
-    grid-template-rows: repeat(2, 100px); 
+    /* grid-template-rows: repeat(2, 100px);  */
+
+    grid-template-columns: minmax(100px, 1fr) 1fr 1fr;
+    grid-auto-rows: 50px;
+    gap: 4px
 
 }
 
@@ -281,6 +285,24 @@ grid: cuadricula, matriz o rejilla dos dimensiones, row Y column*/
     border: 2px solid plum;
     border-radius: 6px;
 }
+
+/*Bento grids: https://bentogrids.com/*/
+.contenedor-grid div:first-child{
+    background: greenyellow;
+    border: 2px solid green;
+    /*posicionar desde donde inicia y donde termina en la cuadrila*/
+    grid-column-start: 1; /*espacio de la cuadricula 3*/
+    grid-column-end: 3; /*espacio de la cuadricula 4*/
+    /*forma corta de hacerlo*/
+    grid-column: 2 / 3; /*que vaya de la columna 2 a la 4*/
+
+    grid-row-start: 1;
+    grid-row-end: 3;
+    /*forma corta de hacerlo*/
+    grid-row: 2 / 4; /*que vaya de la fila 2 a la 4*/
+}
+
+
 
 .div-poster{
     display: grid;
