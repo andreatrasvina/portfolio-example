@@ -274,9 +274,22 @@ grid: cuadricula, matriz o rejilla dos dimensiones, row Y column*/
     /*minmax(100px, 1fr): minimo 100px, maximo 1fr*/
     /* grid-template-rows: repeat(2, 100px);  */
 
-    grid-template-columns: minmax(100px, 1fr) 1fr 1fr;
+    grid-template-columns: repeat(3, 100px);
     grid-auto-rows: 50px;
-    gap: 4px
+    gap: 4px;
+    height: 400px;
+
+    /*estas propiedades solo afectan a los elementos*/
+    justify-items: stretch; /*de izq a der*/
+    align-items: center; /*de arriba a abajo*/
+    /*abreviacion de estos dos elementos*/
+    place-items: stretch;
+
+    /*se puede alinear tambien el contenedor*/
+    justify-content: center; /*horizontalmente*/
+    align-content: center; /*verticalmente*/
+    /*abreviacion de estos elementos:*/
+    place-content: center;
 
 }
 
@@ -290,16 +303,19 @@ grid: cuadricula, matriz o rejilla dos dimensiones, row Y column*/
 .contenedor-grid div:first-child{
     background: greenyellow;
     border: 2px solid green;
+    
     /*posicionar desde donde inicia y donde termina en la cuadrila*/
-    grid-column-start: 1; /*espacio de la cuadricula 3*/
-    grid-column-end: 3; /*espacio de la cuadricula 4*/
+    /*grid-column-start: 1; /*espacio de la cuadricula 3*/
+    /*grid-column-end: 3; /*espacio de la cuadricula 4*/
     /*forma corta de hacerlo*/
-    grid-column: 2 / 3; /*que vaya de la columna 2 a la 4*/
-
-    grid-row-start: 1;
+    /*grid-column: 2 / 3; /*que vaya de la columna 2 a la 4*/
+    
+    /*grid-row-start: 1;
     grid-row-end: 3;
     /*forma corta de hacerlo*/
-    grid-row: 2 / 4; /*que vaya de la fila 2 a la 4*/
+    /*grid-row: 2 / 4; /*que vaya de la fila 2 a la 4*/
+    
+    align-self: stretch; /*se puede modificar uno solo*/
 }
 
 
