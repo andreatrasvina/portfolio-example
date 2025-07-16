@@ -186,23 +186,33 @@ flex wrap: cuando hay desbordamiento no wrap ajusta el tamaño de elementos para
 .section{
     border: 4px solid;
     box-sizing: border-box;
-    width: 300px;
+    width: 250px;
+    height: 400px;
     display: flex;
-    flex-direction: row;
-    /* direction: rtl; rigth to left*/
-    /* writing-mode:vertical-lr; left right */
     flex-wrap: nowrap;
 
+    flex-direction: row; /* eje principal */
+    justify-content: center; /*direccion sobre el eje principal que se mueve*/
+    gap: 10px; /*distancia entre elementos*/
+
+    align-content: center; /*en mas de una linea, modifica la alineacion en el eje cruzado, en todo el contenido*/
+    align-items: center; /*modifica la alineacion en el eje cruzado, dentro de su mismo contenedor*/
+    
+    /* flex-direction: row; */
+    /* direction: rtl; rigth to left*/
+    /* writing-mode:vertical-lr; left right */
+    /* flex-wrap: nowrap; */
+
     /*existe una manera de abreviar direction y wrap en una sola linea*/
-    flex-flow: row wrap;
+    /* flex-flow: row wrap; */
 }
 
 .item{
     border: 1px solid;
+    box-sizing: border-box;
     opacity: .9;
     width: 50px;
-    height: 100px;
-    background: #09f;
+    height: 50px;
 
     /*valores por defecto*/
     /*flex-grow: 0; los elementos NO crecen*/
@@ -211,26 +221,29 @@ flex wrap: cuando hay desbordamiento no wrap ajusta el tamaño de elementos para
     /*esto es equivalente a flex: auto*/
 
 
-    flex-grow: 1; /*los elementos crecen su tamaño, se adaptan al contenedor padre*/
-    flex-shrink: 1; /*los elementos pueden reducir su tamaño*/
-    flex-basis: 0; /*independientemente del contenido todos los elementos toman el mismo tamaño*/
+    /*flex-grow: 1; /*los elementos crecen su tamaño, se adaptan al contenedor padre*/
+    /*flex-shrink: 1; /*los elementos pueden reducir su tamaño*/
+    /*flex-basis: 0; /*independientemente del contenido todos los elementos toman el mismo tamaño*/
     /*esto es equivalente a flex: 1;*/
-    flex: 1;
+    /*flex: 1;*/
 }
 
 .item:first-child{
     background: yellow;
-    flex: 4;/*sirve como medida relativa para asignar el tamaño de los elementos, 4 veces lo que usaria 1 espacio normal*/
-    order: 3; /*orden en el que los hijos se muestran en el contendor flexible, es como el z index*/
+    height: 20px;
+    align-self: end; /*alineacion de un solo elemento*/
+    /*flex: 4;/*sirve como medida relativa para asignar el tamaño de los elementos, 4 veces lo que usaria 1 espacio normal*/
+    /* order: 3; /*orden en el que los hijos se muestran en el contendor flexible, es como el z index */
 }
 
 .item:nth-child(2){
     background-color: violet;
-    flex: 2; /*2 veces de lo que usaria un espacio normal(el espacio normal es el elemento que tiene flex:1)*/
-    order: 1;
+    height: 30px;
+    /* flex: 2; /*2 veces de lo que usaria un espacio normal(el espacio normal es el elemento que tiene flex:1)*/
+    /*order: 1; */
 }
 .item:last-child{
     background: red;
-    flex: 1; 
-    order: 2;
+    /* flex: 1; 
+    order: 2; */
 }
