@@ -281,3 +281,26 @@ grid: cuadricula, matriz o rejilla dos dimensiones, row Y column*/
     border: 2px solid plum;
     border-radius: 6px;
 }
+
+.div-poster{
+    display: grid;
+    /*en vez de usar media querys*/
+    grid-template-columns: repeat(
+        auto-fill, /*agrega todas las columnas que quepan en el ancho disponible del contenedor*/
+                   /*auto-fit: cuando los elementos no llenan toda la fila, el contenido se ajusta para que llenen los espacios vacios*/
+        minmax(200px, 1fr) /*ancho minimo de 200px, pero puede crecer hasta un máximo de 1fr*/
+    );
+    /*forma abreviada de escribir column-gap: 10px y row-gap:10px*/
+    gap: 16px 16px; /*cuando es el mismo valor se puede poner 1 sola vez, cuando es diferente el gap de arriba- abajo y der-izq se ponen ambos valores*/
+
+    /*si se quiere limitar el tamaño maximo de los componentes que caben se puede dejar fijo el tamaño del w*/
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+img {
+    width: 100%;
+    height: auto;
+
+    border-radius: 8px;
+}
