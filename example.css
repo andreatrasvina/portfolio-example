@@ -326,3 +326,53 @@ img {
 
     border-radius: 8px;
 }
+
+/*Creando un Layout*/
+
+.contenedor-web{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 35px 1fr 100px;
+    min-height: 100vh;
+    /*los nombres asignados se inyectan donde quieres que aparezcan*/
+    grid-template-areas: 
+        "header header header"
+        "aside main main"
+        "footer footer footer"
+    ;
+}
+
+/*al hacer media querys tambien podemos ajustarlos*/
+@media(width>400px){
+    .contenedor-web{
+        grid-template-areas: 
+        "header header aside"
+        "main main main"
+        "footer footer footer"
+    ;
+    }
+}
+
+.contenedor-web header{
+    background: #09f;
+    /* grid-column: 1 / -1; */ /*esta bien la distribuicion de los elementos, pero a veces es muy dificil de mantener el codigo o realmente entender que esta pasando*/
+    /*asignaremos un nombre a los elementos*/
+    grid-area: header; /*asigna nombre*/
+}
+
+.contenedor-web aside{
+    background: yellow;
+    grid-area: aside; /*asigna nombre*/
+}
+
+.contenedor-web main{
+    background: red;
+    /* grid-column: span 2; /*span: posicion actual, cantidad de celdas que avanza */
+    grid-area: main; /*asigna nombre*/
+}
+
+.contenedor-web footer{
+    background: gray;
+    /* grid-column: 1 / -1; */
+    grid-area: footer; /*asigna nombre*/
+}
