@@ -6,7 +6,18 @@
     border-radius: 100%;
     position: relative;
     /*para agregar una transicion: */
-    transition-duration: 3s;
+    transition-duration: 2s;
+    /*para controlar unicamente los elementos que quieres transicionar*/
+    transition-property: scale, background;
+    /*para controlar la velocidad de la transicion, ease, steps(50), cubic-bezier(usar desde las herramientas de desarrollo)*/
+    transition-timing-function: ease;
+    /*para controlar cuando iniciar la transicion*/
+    transition-delay: 200ms;
+    /*se puede abreviar y escribir en una sola propiedad: https://developer.mozilla.org/en-US/docs/Web/CSS/transition*/
+    transition: all 300ms ease-in-out; /*estado final*/
+        /* transform background 300ms linear,
+        scale 600ms ease-in-out,
+        box-shadow 900ms ease; */
 }
 
 /*estado nuevo*/
@@ -14,7 +25,14 @@
     scale: 7;
     background: palevioletred;
     box-shadow: 0 0 10px palevioletred;
+    transition-duration: 1s; /*la segunda animacion*/
+}
 
+/*accesibilidad web: media query para eliminar las transiciones a los usuarios que tengan activada esa preferencia*/
+@media (prefers-reduced-motion: reduce){
+    .pulser{
+        transition: none;
+    }
 }
 
 body{
