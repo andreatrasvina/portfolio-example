@@ -1,0 +1,24 @@
+
+.pulser{
+    width: 30px;
+    height: 30px;
+    background: pink;
+    border-radius: 100%;
+    position: relative;
+    /*para agregar una transicion: */
+    transition-duration: 3s;
+}
+
+/*estado nuevo*/
+.pulser:hover{
+    scale: 7;
+    background: palevioletred;
+    box-shadow: 0 0 10px palevioletred;
+
+}
+
+body{
+    display: grid;
+    place-content: center;
+    min-height: 50vh;
+}
